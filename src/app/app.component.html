@@ -1,0 +1,7 @@
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="currentAuthInfo$ | async as currentAuthStatus">
+  <ng-container *ngIf="currentAuthStatus.dataStatus === 'loading'">
+    <platform-loader-screen></platform-loader-screen>
+  </ng-container>
+</ng-container>
