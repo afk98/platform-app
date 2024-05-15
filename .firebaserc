@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "platform-v2-clone": {
+      "hosting": {
+        "platform-clone": [
+          "platform-v2-clone"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "platform-v2-clone"
+  }
+}

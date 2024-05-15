@@ -1,0 +1,25 @@
+<ng-container *ngIf="userProfile$ | async as User">
+  <article class="dashboard" *ngIf="User.dataStatus === 'success'">
+    <section class="dashboard__section left">
+      <div class="section-items">
+        <platform-profile-card [userProfile]="User"></platform-profile-card>
+        <platform-follow-suggestion></platform-follow-suggestion>
+      </div>
+    </section>
+    <section class="dashboard__section center">
+      <platform-feed-post-card [profile]="User"></platform-feed-post-card>
+      <platform-feed
+        *ngIf="tweetPost$ | async as Tweet"
+        [feedTweets]="Tweet.tweets"
+      ></platform-feed>
+    </section>
+    <section class="dashboard__section right">
+      <div>
+        <platform-trending-card></platform-trending-card>
+      </div>
+    </section>
+  </article>
+  <ng-container *ngIf="User.dataStatus === 'loading'">
+    <platform-loader-screen></platform-loader-screen>
+  </ng-container>
+</ng-container>
